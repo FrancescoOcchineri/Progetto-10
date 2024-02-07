@@ -1,0 +1,42 @@
+.navbar {
+    background: rgb(78, 154, 79);
+    background: linear-gradient(180deg, rgb(78, 154, 79) 0%, rgb(56, 86, 52) 93%);
+}
+
+.navbar #register {
+    font-size: 13px;
+}
+
+.navbar #cart:hover {
+    border: 2px solid white;
+}
+
+.navbar #userLogin:hover {
+    border: 2px solid white;
+}
+
+main .card-img-top {
+    background-color: rgb(252, 249, 249);
+}
+
+main #linkTitle {
+    color: black;
+    text-decoration: none;
+}
+
+main #linkTitle:hover {
+    color: green;
+}
+
+#customForm {
+    margin: 0 15rem;
+    margin-top: 4rem;
+    padding: 2rem 2rem;
+    background-color: rgb(158, 243, 167);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.378);
+}
+
+
+#customInput:hover {
+    border: 1px solid green !important;
+}
