@@ -49,7 +49,7 @@ function addBook($mysqli, $titolo, $autore, $anno, $genere, $image)
 function getBook($mysqli, $userId)
 {
     $result = [];
-    $sql = "SELECT DISTINCT * FROM utenti INNER JOIN books ON utenti_id = books.utenti_id WHERE books.utenti_id = $userId";
+    $sql = "SELECT * FROM books WHERE utenti_id = $userId";
     $res = $mysqli->query($sql);
     if ($res) {
         while ($row = $res->fetch_assoc()) {
@@ -72,6 +72,15 @@ function updateBook($mysqli, $id, $titolo, $autore, $anno, $genere, $image)
         echo ($mysqli->connect_error);
     } else {
         echo 'Record aggiornato con successo';
+    }
+}
+
+function deleteBook($mysqli, $id)
+{
+    if (!$mysqli->query('DELETE FROM books WHERE id = ' . $id)) {
+        echo ($mysqli->connect_error);
+    } else {
+        echo 'Record eliminato!';
     }
 }
 ?>

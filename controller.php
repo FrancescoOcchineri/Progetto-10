@@ -16,30 +16,33 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'login') {
     header('Location: http://localhost/PHP/Progetto%2010/login.php');
 }
 
-$file_name = $_FILES['image']['name'];
-$file_size = $_FILES['image']['size'];
-$file_type = $_FILES['image']['type'];
+if (!empty($_FILES['image']['name'])) {
+    $file_name = $_FILES['image']['name'];
+    $file_size = $_FILES['image']['size'];
+    $file_type = $_FILES['image']['type'];
+    $file_tmp = $_FILES['image']['tmp_name'];
 
-$target_dir = 'uploads/';
+    $target_dir = 'uploads/';
 
-if (!empty($_FILES['image'])) {
-    echo '<h3>File Name: ' . $file_name . '</h3>';
-    echo '<h3>File Type: ' . $file_type . '</h3>';
-    echo '<h3>File Size: ' . $file_size . '</h3>';
-    if (strpos($file_type, "image/") === 0) {
-        if ($file_size < 4000000) {
-            if (is_uploaded_file($_FILES["image"]["tmp_name"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
-                if (move_uploaded_file($_FILES['image']["tmp_name"], $target_dir . $file_name)) {
-                    echo "Caricamento avvenuto con successo";
-                } else {
-                    echo "Caricamento fallito";
+    if (!empty($_FILES['image'])) {
+        echo '<h3>File Name: ' . $file_name . '</h3>';
+        echo '<h3>File Type: ' . $file_type . '</h3>';
+        echo '<h3>File Size: ' . $file_size . '</h3>';
+        if (strpos($file_type, "image/") === 0) {
+            if ($file_size < 4000000) {
+                if (is_uploaded_file($_FILES["image"]["tmp_name"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
+                    if (move_uploaded_file($_FILES['image']["tmp_name"], $target_dir . $file_name)) {
+                        echo "Caricamento avvenuto con successo";
+                    } else {
+                        echo "Caricamento fallito";
+                    }
                 }
+            } else {
+                echo "File troppo grande!";
             }
         } else {
-            echo "File troppo grande!";
+            echo "File non supportato!";
         }
-    } else {
-        echo "File non supportato!";
     }
 }
 
@@ -82,6 +85,9 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'addBook') {
     $image = $target_dir . $file_name;
 
     updateBook($mysqli, $_REQUEST['id'], $titolo, $autore, $anno, $genere, $image);
+    exit(header('Location: http://localhost/PHP/Progetto%2010/books.php?id=' . $user));
+} else if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'deleteBook') {
+    deleteBook($mysqli, $_REQUEST['id']);
     exit(header('Location: http://localhost/PHP/Progetto%2010/books.php?id=' . $user));
 }
 ?>

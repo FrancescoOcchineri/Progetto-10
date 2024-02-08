@@ -67,24 +67,24 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
         </thead>
         <tbody>
             <?php
-            foreach ($books as $key => $post) {
+            foreach ($books as $key => $book) {
                 ?>
                 <tr>
                     <th scope="row">
                         <?= $key + 1 ?>
                     </th>
-                    <td><img src="<?= $post['img'] ?>" width="100"></td>
+                    <td><img src="<?= $book['img'] ?>" width="100"></td>
                     <td>
-                        <?= $post['titolo'] ?>
+                        <?= $book['titolo'] ?>
                     </td>
                     <td>
-                        <?= $post['autore'] ?>
+                        <?= $book['autore'] ?>
                     </td>
                     <td>
-                        <?= $post['anno'] ?>
+                        <?= $book['anno'] ?>
                     </td>
                     <td>
-                        <?= $post['genere'] ?>
+                        <?= $book['genere'] ?>
                     </td>
                     <td>
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal"
@@ -99,57 +99,62 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="controller.php?action=update&id=<?= $_post['id'] ?>"
-                                            enctype="multipart/form-data"" novalidate>
+                                        <form method="post" action="controller.php?action=update&id=<?= $book['id'] ?>"
+                                            enctype="multipart/form-data" novalidate>
                                             <div>
                                                 <label for=" formFile" class="form-label fs-5">Book
-                                            cover:</label>
-                                            <input class="form-control" name="image" type="file" id="customInput">
+                                                    cover:</label>
+                                                <input class="form-control" name="image" type="file" id="customInput">
+                                            </div>
+                                            <div class="mt-3">
+                                                <label for="titolo" class="form-label fs-5">Title:</label>
+                                                <input id="customInput" type="text" class="form-control" name="titolo"
+                                                    required>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <label for="autore" class="form-label fs-5">Author:</label>
+                                                <input id="customInput" type="text" class="form-control" name="autore"
+                                                    required>
+                                                <div class="invalid-feedback">
+                                                    Please choose a username.
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <label for="anno" class="form-label fs-5">Publication
+                                                    year:</label>
+                                                <input id="customInput" type="text" class="form-control" name="anno"
+                                                    required>
+                                            </div>
+                                            <div class="mt-3">
+                                                <label for="genere" class="form-label fs-5">Genre:</label>
+                                                <input id="customInput" type="text" class="form-control" name="genere"
+                                                    required>
+                                            </div>
                                     </div>
-                                    <div class="mt-3">
-                                        <label for="titolo" class="form-label fs-5">Title:</label>
-                                        <input id="customInput" type="text" class="form-control" name="titolo" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Modify</button>
                                     </div>
-                                    <div class="mt-3">
-                                        <label for="autore" class="form-label fs-5">Author:</label>
-                                        <input id="customInput" type="text" class="form-control" name="autore" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                        </div>
-                                    </div>
-                                    <div class="mt-3">
-                                        <label for="anno" class="form-label fs-5">Publication
-                                            year:</label>
-                                        <input id="customInput" type="text" class="form-control" name="anno" required>
-                                    </div>
-                                    <div class="mt-3">
-                                        <label for="genere" class="form-label fs-5">Genre:</label>
-                                        <input id="customInput" type="text" class="form-control" name="genere" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Modify</button>
                                 </div>
                             </div>
                         </div>
-    </div>
-    </form>
-    </td>
-    <td>
-        <form method="post" action="controller.php?action=deleteBook">
-            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-        </form>
-    </td>
-    </tr>
-    <?php
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="controller.php?action=deleteBook&id=<?= $book['id'] ?>">
+                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                <?php
             }
             ?>
-</tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 </body>
 
