@@ -23,19 +23,19 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
                     id='form-register' class="mt-3">
                     <div class="mb-3">
                         <label for="titolo" class="form-label text-white fs-5">Title:</label>
-                        <input id="customInput" type="text" class="form-control" name="titolo" required>
+                        <input id="customInput" type="text" class="form-control" name="titolo" placeholder="Title..." required>
                     </div>
                     <div class="mb-3">
                         <label for="autore" class="form-label text-white fs-5">Author:</label>
-                        <input id="customInput" type="text" class="form-control" name="autore" required>
+                        <input id="customInput" type="text" class="form-control" name="autore" placeholder="Author..." required>
                     </div>
                     <div class="mb-3">
                         <label for="anno" class="form-label text-white fs-5">Publication year:</label>
-                        <input id="customInput" type="text" class="form-control" name="anno" required>
+                        <input id="customInput" type="text" class="form-control" name="anno" placeholder="2024" required>
                     </div>
                     <div class="mb-3">
                         <label for="genere" class="form-label text-white fs-5">Genre:</label>
-                        <input id="customInput" type="text" class="form-control" name="genere" required>
+                        <input id="customInput" type="text" class="form-control" name="genere" placeholder="Genre..." required>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label text-white fs-5">Book cover:</label>
@@ -88,9 +88,12 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
                     </td>
                     <td>
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"><i class="bi bi-pencil-square text-white"></i></button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                            data-bs-target="#exampleModal<?= $book['id'] ?>">
+                            <i class="bi bi-pencil-square text-white"></i>
+                        </button>
+
+                        <div class="modal fade" id="exampleModal<?= $book['id'] ?>" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -108,7 +111,7 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
                                             </div>
                                             <div class="mt-3">
                                                 <label for="titolo" class="form-label fs-5">Title:</label>
-                                                <input id="customInput" type="text" class="form-control" name="titolo"
+                                                <input id="customInput" type="text" class="form-control" name="titolo" value="<?= $book['titolo'] ?>"
                                                     required>
                                                 <div class="valid-feedback">
                                                     Looks good!
@@ -116,7 +119,7 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
                                             </div>
                                             <div class="mt-3">
                                                 <label for="autore" class="form-label fs-5">Author:</label>
-                                                <input id="customInput" type="text" class="form-control" name="autore"
+                                                <input id="customInput" type="text" class="form-control" name="autore" value="<?= $book['autore'] ?>"
                                                     required>
                                                 <div class="invalid-feedback">
                                                     Please choose a username.
@@ -125,12 +128,12 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
                                             <div class="mt-3">
                                                 <label for="anno" class="form-label fs-5">Publication
                                                     year:</label>
-                                                <input id="customInput" type="text" class="form-control" name="anno"
+                                                <input id="customInput" type="text" class="form-control" name="anno" value="<?= $book['anno'] ?>"
                                                     required>
                                             </div>
                                             <div class="mt-3">
                                                 <label for="genere" class="form-label fs-5">Genre:</label>
-                                                <input id="customInput" type="text" class="form-control" name="genere"
+                                                <input id="customInput" type="text" class="form-control" name="genere" value="<?= $book['genere'] ?>"
                                                     required>
                                             </div>
                                     </div>

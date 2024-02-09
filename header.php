@@ -23,7 +23,7 @@ if (isset($_SESSION['user_login'])) {
         <div class="container-fluid">
             <a class="navbar-brand text-light fw-bold" href="index.php"><img class="rounded-circle"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMznIG72qeQsLsPMFTXeZsNvbM3Hmw7NVGAg&usqp=CAU"
-                    style="width: 3rem;"> Library</a>
+                    style="width: 3rem;"> Library<strong class="text-danger">All</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -35,25 +35,11 @@ if (isset($_SESSION['user_login'])) {
                         <a class="nav-link active text-light" aria-current="page" href="index.php"
                             id="homePage">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Books
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Coding</a></li>
-                            <li><a class="dropdown-item" href="#">Programming Languages</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Authors</a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <?php if (!isset($user)) {
                     echo '<div class="dropdown">
                     <button type="button" class="btn dropdown-toggle text-light py-2 mx-3" data-bs-toggle="dropdown"
-                        aria-expanded="false" id="userLogin">
+                        aria-expanded="false">
                         Hi, sign in
                     </button>
                     <ul class="dropdown-menu px-4" id="userUl">
@@ -64,7 +50,7 @@ if (isset($_SESSION['user_login'])) {
                     </ul>
                 </div>
                 <button type="button" class="btn text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    id="cart">
+                    >
                     <i class="bi bi-cart text-light fs-5"></i>Cart
                 </button>
             </div>';
@@ -73,17 +59,17 @@ if (isset($_SESSION['user_login'])) {
                 if (isset($user)) {
                     echo '<div class="dropdown">
             <button type="button" class="btn dropdown-toggle text-light py-2 mx-3" data-bs-toggle="dropdown"
-                aria-expanded="false" id="userLogin">
-                <img src="' . $user['img'] . '" alt="' . $user['username'] . '" width="50">
+                aria-expanded="false">
+                Hi, ' . $user['username'] . ' <img src="' . $user['img'] . '" alt="' . $user['username'] . '" width="50" height="50">
             </button>
             <ul class="dropdown-menu px-4" id="userUl">
             <div class="d-flex flex-column justify-content-center align-items-center">
-                        <a href="books.php?id=' . $user['id'] . '">Add Books</a>
-                        <a class="mt-1" href="controller.php?action=logout">Logout</a>
+                        <a class="text-success" href="books.php?id=' . $user['id'] . '">Add Books</a>
+                        <a class="mt-1 text-success" href="controller.php?action=logout">Logout</a>
                         </div>
                         </ul>
         <button type="button" class="btn text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            id="cart">
+            >
             <i class="bi bi-cart text-light fs-5"></i>Cart
         </button>
     </div>';

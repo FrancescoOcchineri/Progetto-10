@@ -4,7 +4,7 @@ session_start();
 require_once 'config.php';
 include_once('function.php');
 
-// PER IL LOGIN TUTTI GLI UTENTI HANNO QUESTA PASSWORD -> Pa$$w0rd!
+// PER IL LOGIN TUTTI GLI UTENTI HANNO QUESTA PASSWORD -> "Pa$$w0rd!"
 
 if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'login') {
     echo 'Sono nella sezione login';
@@ -70,15 +70,16 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'register') {
 /* include_once 'mail.php'; */
 
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'addBook') {
-    $titolo = strlen(trim(htmlspecialchars($_POST['titolo']))) > 2 ? trim(htmlspecialchars($_POST['titolo'])) : exit();
+    $titolo = strlen(trim(htmlspecialchars($_POST['titolo']))) > 1 ? trim(htmlspecialchars($_POST['titolo'])) : exit();
     $autore = strlen(trim(htmlspecialchars($_POST['autore']))) > 2 ? trim(htmlspecialchars($_POST['autore'])) : exit();
     $anno = strlen(trim(htmlspecialchars($_POST['anno']))) > 2 ? trim(htmlspecialchars($_POST['anno'])) : exit();
     $genere = strlen(trim(htmlspecialchars($_POST['genere']))) > 2 ? trim(htmlspecialchars($_POST['genere'])) : exit();
     $image = $target_dir . $file_name;
 
     addBook($mysqli, $titolo, $autore, $anno, $genere, $image);
+    exit(header('Location: http://localhost/PHP/Progetto%2010/books.php'));
 } else if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'update') {
-    $titolo = strlen(trim(htmlspecialchars($_POST['titolo']))) > 2 ? trim(htmlspecialchars($_POST['titolo'])) : exit();
+    $titolo = strlen(trim(htmlspecialchars($_POST['titolo']))) > 1 ? trim(htmlspecialchars($_POST['titolo'])) : exit();
     $autore = strlen(trim(htmlspecialchars($_POST['autore']))) > 2 ? trim(htmlspecialchars($_POST['autore'])) : exit();
     $anno = strlen(trim(htmlspecialchars($_POST['anno']))) > 2 ? trim(htmlspecialchars($_POST['anno'])) : exit();
     $genere = strlen(trim(htmlspecialchars($_POST['genere']))) > 2 ? trim(htmlspecialchars($_POST['genere'])) : exit();

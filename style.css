@@ -7,14 +7,6 @@
     font-size: 13px;
 }
 
-.navbar #cart:hover {
-    border: 2px solid white;
-}
-
-.navbar #userLogin:hover {
-    border: 2px solid white;
-}
-
 main .card-img-top {
     background-color: rgb(252, 249, 249);
 }
@@ -39,4 +31,20 @@ main #linkTitle:hover {
 
 #customInput:hover {
     border: 1px solid green !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black !important;
+    color: white !important;
+}
+
+.second-card-img {
+    width: 100%;
+    height: auto;
+}
+
+#footer {
+    background: rgb(78, 154, 79);
+    background: linear-gradient(180deg, rgb(78, 154, 79) 0%, rgb(56, 86, 52) 93%);
 }

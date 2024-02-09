@@ -28,20 +28,6 @@
                         <a class="nav-link active text-light" aria-current="page" href="index.php"
                             id="homePage">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Books
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Coding</a></li>
-                            <li><a class="dropdown-item" href="#">Programming Languages</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Authors</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
     </nav>

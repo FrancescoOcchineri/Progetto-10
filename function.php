@@ -39,9 +39,6 @@ function addBook($mysqli, $titolo, $autore, $anno, $genere, $image)
         ('$titolo', '$autore', '$anno', '$genere', '$image', $user)";
         if (!$mysqli->query($sql)) {
             echo ($mysqli->connect_error);
-        } else {
-            header('Location: http://localhost/PHP/Progetto%2010/books.php?id=' . $user);
-            exit();
         }
     }
 }
@@ -82,5 +79,18 @@ function deleteBook($mysqli, $id)
     } else {
         echo 'Record eliminato!';
     }
+}
+
+function getAllBooks($mysqli)
+{
+    $result = [];
+    $sql = "SELECT * FROM books";
+    $res = $mysqli->query($sql);
+    if ($res) {
+        while ($row = $res->fetch_assoc()) {
+            $result[] = $row;
+        }
+    }
+    return $result;
 }
 ?>
