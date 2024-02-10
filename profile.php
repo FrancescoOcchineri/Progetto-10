@@ -21,7 +21,7 @@ include("function.php");
                         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                             <img src="<?php echo $user['img']; ?>" alt="<?php echo $user['username']; ?>"
                                 class="img-fluid img-thumbnail mb-2"
-                                style="width: 150px; z-index: 1; margin-top: 6rem;">
+                                style="margin-top: 4rem; max-width: 150px; max-height: 200px; z-index: 1;">
                         </div>
                         <div class="ms-3" style="margin-top: 130px;">
                             <h5></h5>
@@ -35,7 +35,7 @@ include("function.php");
                     </div>
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
                         <div class="card-body p-4 text-black">
-                            <div class="mb-5" style="margin-top: 3rem;">
+                            <div class="mb-5" style="margin-top: 5rem;">
                                 <p class="lead fw-normal mb-1">About</p>
                                 <div class="p-4" style="background-color: #f8f9fa;">
                                     <div class="d-flex">
@@ -62,11 +62,45 @@ include("function.php");
                                                     <?php echo $user['city']; ?>
                                                 </p>
                                     </div>
-                                    <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
-                                        style="z-index: 1; margin-top: 1rem" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        Edit profile
-                                    </button>
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                            style="z-index: 1; margin-top: 1rem" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            Edit profile
+                                        </button>
+                                        <div class="modal fade" id="deleteProfileModal" tabindex="-1"
+                                            aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-danger fw-bold"
+                                                            id="deleteProfileModalLabel">Delete
+                                                            Profile</h5>
+                                                        <button type="button" class="btn-close" data-mdb-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Delete your profile and all associated data,
+                                                        are you sure?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-mdb-dismiss="modal">Close</button>
+                                                        <form method="post"
+                                                            action="controller.php?action=deleteProfile&id=<?= $user['id'] ?>"
+                                                            enctype="multipart/form-data" novalidate>
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline-danger"
+                                            data-mdb-ripple-color="danger" style="z-index: 1; margin-top: 1rem"
+                                            data-mdb-toggle="modal" data-mdb-target="#deleteProfileModal">
+                                            Delete profile
+                                        </button>
+                                    </div>
                                     <div class="modal fade" id="exampleModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable">

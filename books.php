@@ -12,7 +12,7 @@ include_once('function.php');
 $books = getBook($mysqli, $_SESSION['user_login']['id']);
 ?>
 
-<h1 id="login" class="text-dark fw-bold text-center" style="margin-top: 5rem;">
+<h1 id="login" class="text-dark fw-bold text-center" style="margin-top: 7rem;">
     <?php echo "Hi " . $_SESSION['user_login']['username'] . '!'; ?>
 </h1>
 <div class="container d-flex justify-content-center" style="margin-top: 5rem;">
@@ -52,7 +52,7 @@ $books = getBook($mysqli, $_SESSION['user_login']['id']);
 <h1 id="login" class="text-dark fw-bold mx-5" style="margin-top: 5rem;">My Books:</h1>
 
 <div class="d-flex justify-content-center">
-    <table class="table table-secondary table-hover mt-5" style="width: 150rem;">
+    <table class="table table-secondary table-hover mt-5">
         <thead>
             <tr>
                 <th scope="col">#</th>

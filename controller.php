@@ -101,5 +101,8 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'updateProfile') {
 
     updateUser($mysqli, $_REQUEST['id'], $firstname, $lastname, $username, $city, $image);
     exit(header('Location: http://localhost/PHP/Progetto%2010/profile.php'));
+} else if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'deleteProfile') {
+    deleteUser($mysqli, $_REQUEST['id']);
+    exit(header('Location: http://localhost/PHP/Progetto%2010/login.php'));
 }
 ?>

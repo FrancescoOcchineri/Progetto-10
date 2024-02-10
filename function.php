@@ -106,7 +106,22 @@ function updateUser($mysqli, $id, $firstname, $lastname, $username, $city, $imag
     if (!$mysqli->query($sql)) {
         echo ($mysqli->connect_error);
     } else {
+        $_SESSION['user_login']['firstname'] = $firstname;
+        $_SESSION['user_login']['lastname'] = $lastname;
+        $_SESSION['user_login']['username'] = $username;
+        $_SESSION['user_login']['city'] = $city;
+        $_SESSION['user_login']['img'] = $image;
+
         echo 'Profilo aggiornato con successo';
+    }
+}
+
+function deleteUser($mysqli, $id)
+{
+    if (!$mysqli->query('DELETE FROM utenti WHERE id = ' . $id)) {
+        echo ($mysqli->connect_error);
+    } else {
+        echo 'Profilo eliminato!';
     }
 }
 ?>
