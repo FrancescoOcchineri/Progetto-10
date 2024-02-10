@@ -22,8 +22,8 @@ if (isset($_SESSION['user_login'])) {
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand text-light fw-bold" href="index.php"><img class="rounded-circle"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMznIG72qeQsLsPMFTXeZsNvbM3Hmw7NVGAg&usqp=CAU"
-                    style="width: 3rem;"> Library<strong class="text-danger">All</strong></a>
+                    src="https://cdn-icons-png.flaticon.com/512/7641/7641225.png" style="width: 3rem;"> Library<strong
+                    class="text-danger">All</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -36,42 +36,20 @@ if (isset($_SESSION['user_login'])) {
                             id="homePage">Home</a>
                     </li>
                 </ul>
-                <?php if (!isset($user)) {
-                    echo '<div class="dropdown">
-                    <button type="button" class="btn dropdown-toggle text-light py-2 mx-3" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Hi, sign in
-                    </button>
-                    <ul class="dropdown-menu px-4" id="userUl">
-                        <div class="d-flex flex-column justify-content-center" id="divUl">
-                            <a href="login.php"><button class="btn btn-warning px-4 py-1">Sign in</button></a>
-                            <a href="register.php" class="text-end mt-1" id="register">New here?</a>
-                        </div>
-                    </ul>
-                </div>
-                <button type="button" class="btn text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    >
-                    <i class="bi bi-cart text-light fs-5"></i>Cart
-                </button>
-            </div>';
-                }
-
+                <?php
                 if (isset($user)) {
                     echo '<div class="dropdown">
             <button type="button" class="btn dropdown-toggle text-light py-2 mx-3" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Hi, ' . $user['username'] . ' <img src="' . $user['img'] . '" alt="' . $user['username'] . '" width="50" height="50">
+                Hi, ' . $user['username'] . ' <img src="' . $user['img'] . '" alt="' . $user['username'] . '" style="max-width: 3rem;">
             </button>
             <ul class="dropdown-menu px-4" id="userUl">
             <div class="d-flex flex-column justify-content-center align-items-center">
-                        <a class="text-success" href="books.php?id=' . $user['id'] . '">Add Books</a>
+            <a class="text-success" href="profile.php">Profile</a>
+                        <a class="mt-1 text-success" href="books.php?id=' . $user['id'] . '">Add Books</a>
                         <a class="mt-1 text-success" href="controller.php?action=logout">Logout</a>
                         </div>
                         </ul>
-        <button type="button" class="btn text-light py-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            >
-            <i class="bi bi-cart text-light fs-5"></i>Cart
-        </button>
     </div>';
                 }
                 ?>

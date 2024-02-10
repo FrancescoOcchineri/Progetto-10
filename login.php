@@ -5,53 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.3.0/css/mdb.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand text-light fw-bold" href="index.php"><img class="rounded-circle"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMznIG72qeQsLsPMFTXeZsNvbM3Hmw7NVGAg&usqp=CAU"
-                    style="width: 3rem;"> Library</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="index.php"
-                            id="homePage">Home</a>
-                    </li>
-                </ul>
+
+    <section class="vh-100" style="background-color: #619a69;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="https://wallpapercave.com/wp/wp2298202.jpg" alt="login form" class="img-fluid"
+                                    style="border-radius: 1rem 0 0 1rem; width: 30rem" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+
+                                    <form method="post" action="controller.php?action=login">
+
+                                        <div class="d-flex align-items-center mb-3 pb-1">
+                                            <p class="fw-bold h1 fw-bold mb-0" href="index.php"><img
+                                                    class="rounded-circle"
+                                                    src="https://cdn-icons-png.flaticon.com/512/7641/7641225.png"
+                                                    style="width: 3rem;"> Library<strong
+                                                    class="text-danger">All</strong></p>
+                                        </div>
+
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
+                                            account</h5>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="form2Example17" class="form-control form-control-lg"
+                                                name="email" />
+                                            <label class="form-label" for="form2Example17">Email address</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="form2Example27"
+                                                class="form-control form-control-lg" name="password" />
+                                            <label class="form-label" for="form2Example27">Password</label>
+                                        </div>
+
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                        </div>
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
+                                                href="register.php" style="color: #393f81;">Register here</a></p>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </nav>
-
-    <h1 id="login" class="text-success fw-bold text-center" style="margin-top: 5rem;">Login</h1>
-    <form id="customForm" method="post" action="controller.php?action=login" class="border border-3 border-success">
-        <div class="row mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="customInput" name="email" placeholder="name@example.com"
-                class="row mb-3">
-            <label for="inputPassword5" class="form-label mt-3">Password</label>
-            <input type="password" id="customInput" class="form-control" name="password">
         </div>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-success mt-3 mb-3">Login</button>
-        </div>
-        <a href="register.php" href="login.php">Non ti sei ancora registrato? Registrati subito!</a>
-    </form>
+    </section>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.3.0/js/mdb.min.js"></script>
 </body>
 
 </html>

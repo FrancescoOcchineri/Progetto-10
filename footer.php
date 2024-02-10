@@ -1,8 +1,5 @@
-<div id="footer" class="card text-center text-white" style="margin-top: 7rem;">
-    <div class="card-header">
-        &copy; 2024
+<footer id="footer" class="footer mt-auto py-3">
+    <div class="container text-center">
+        <span class="text-light">&copy; Francesco Occhineri 2024</span>
     </div>
-    <div class="card-body">
-        <h5 class="card-title">Francesco Occhineri</h5>
-    </div>
-</div>
+</footer>

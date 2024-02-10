@@ -1,3 +1,7 @@
+body {
+    background-color: #f4f5f7;
+}
+
 .navbar {
     background: rgb(78, 154, 79);
     background: linear-gradient(180deg, rgb(78, 154, 79) 0%, rgb(56, 86, 52) 93%);

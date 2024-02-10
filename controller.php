@@ -91,4 +91,15 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'addBook') {
     deleteBook($mysqli, $_REQUEST['id']);
     exit(header('Location: http://localhost/PHP/Progetto%2010/books.php?id=' . $user));
 }
+
+if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'updateProfile') {
+    $firstname = strlen(trim(htmlspecialchars($_POST['firstname']))) > 2 ? trim(htmlspecialchars($_POST['firstname'])) : exit();
+    $lastname = strlen(trim(htmlspecialchars($_POST['lastname']))) > 2 ? trim(htmlspecialchars($_POST['lastname'])) : exit();
+    $username = strlen(trim(htmlspecialchars($_POST['username']))) > 2 ? trim(htmlspecialchars($_POST['username'])) : exit();
+    $city = strlen(trim(htmlspecialchars($_POST['city']))) > 2 ? trim(htmlspecialchars($_POST['city'])) : exit();
+    $image = $target_dir . $file_name;
+
+    updateUser($mysqli, $_REQUEST['id'], $firstname, $lastname, $username, $city, $image);
+    exit(header('Location: http://localhost/PHP/Progetto%2010/profile.php'));
+}
 ?>

@@ -93,4 +93,20 @@ function getAllBooks($mysqli)
     }
     return $result;
 }
+
+function updateUser($mysqli, $id, $firstname, $lastname, $username, $city, $image)
+{
+    $sql = "UPDATE utenti SET 
+    firstname = '" . $firstname . "', 
+    lastname = '" . $lastname . "', 
+    username = '" . $username . "', 
+    city = '" . $city . "', 
+    img = '" . $image . "'  
+    WHERE id = " . $id;
+    if (!$mysqli->query($sql)) {
+        echo ($mysqli->connect_error);
+    } else {
+        echo 'Profilo aggiornato con successo';
+    }
+}
 ?>
